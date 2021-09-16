@@ -3,13 +3,13 @@ title: 关于
 ---
 ### 关于此站
 - #### 本站唯一主页
-  - https://supdrewin.github.io/blog.cn/home
+  - https://gdpu-it-sky.github.io/blog.cn/home
 - #### 行走的知识库
   - 这个名字没有特殊含义, 只是为了好玩
 - #### 本站的文章
   - 如需转载请先看文章脚注说明
 - #### 本站的素材
-  - 关于素材: 本站素材目前均由站长制作, 禁止用于商业用途, 非商业用途请注明出处.
+  - 关于素材: 本站素材目前均由原站长制作, 禁止用于商业用途, 非商业用途请注明出处.
   - 关于水印: 本人不喜欢水印, 使用者不允许在任何素材中嵌入水印, 违者必究.
   - 关于上传:
     - 图片要求: 非网络资源, 长和宽需能被 **100** 整除
@@ -30,8 +30,8 @@ title: 关于
   - 明确说明指向站外, 如文章中'点击跳转 XXX'等
 
 ### 关于作者
-0. [Supdrewin](https://github.com/supdrewin "Supdrewin 的 Github") - 站长,自由职业, Linux 爱好者, 业余镜像收藏家, [不爱折腾的折腾者](# "折腾是为了不折腾")
-1. [Mr. Chai](https://github.com/chaixiang2002 "Mr. Chai 的 Github") - 站长助手, 热爱学习
+0. [Supdrewin](https://github.com/supdrewin "Supdrewin 的 Github") - 原站长, 自由职业, Linux 爱好者, 业余镜像收藏家, [不爱折腾的折腾者](# "折腾是为了不折腾")
+1. [Mr. Chai](https://github.com/chaixiang2002 "Mr. Chai 的 Github") - 现任站长, 热爱学习
 2. [???](# "会是你吗?") - 正在赶来的路上
 
 ### 加入我们
