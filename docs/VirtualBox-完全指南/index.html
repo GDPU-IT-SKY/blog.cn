@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog.cn/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog.cn/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog.cn/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog.cn/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog.cn/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-corner-indicator.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"supdrewin.github.io","root":"/blog.cn/","images":"/blog.cn/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog.cn/js/config.js"></script>
+<meta name="description" content="VirtualBox 是何方神圣下面来看官方是怎么介绍的 (有改动): VirtualBox 是一个同时适用于家庭和企业生产的强有力的 x86 平台虚拟化产品. 功能丰富, 性能优越的 VirtualBox 不仅适仅对于企业用户, 它也是唯一一个可以作为自由软件的专业级解决方案, 开源版本主要使用 GPL v2 许可证. 目前, VirtualBox可以在 Windows, Linux, Mac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VirtualBox 完全指南">
+<meta property="og:url" content="https://supdrewin.github.io/blog.cn/VirtualBox-%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="起飞吧, 少年">
+<meta property="og:description" content="VirtualBox 是何方神圣下面来看官方是怎么介绍的 (有改动): VirtualBox 是一个同时适用于家庭和企业生产的强有力的 x86 平台虚拟化产品. 功能丰富, 性能优越的 VirtualBox 不仅适仅对于企业用户, 它也是唯一一个可以作为自由软件的专业级解决方案, 开源版本主要使用 GPL v2 许可证. 目前, VirtualBox可以在 Windows, Linux, Mac">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VBox/Downloads.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VBox/WgetImage.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VBox/CheckImage.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VBox/MainWindow.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VBox/AppMenu.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VBox/AppSettings.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VBox/InstallExtension.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VBox/NewMachine.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VBox/NewDisk.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VBox/CPUCount.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VBox/VideoMemory.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VBox/RemoveIDE.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VBox/PortCount.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VBox/AddOptical.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VBox/ChooseImage.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VBox/SolidState.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VBox/StartMachine.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VM/InstallGuest.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VM/MountGuest.png">
+<meta property="og:image" content="https://supdrewin.github.io/blog.cn/resources/VM/BuildGuest.png">
+<meta property="article:published_time" content="2021-09-15T16:30:24.426Z">
+<meta property="article:modified_time" content="2021-09-15T16:30:24.426Z">
+<meta property="article:author" content="Supdrewin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://supdrewin.github.io/blog.cn/resources/VBox/Downloads.png">
+
+
+<link rel="canonical" href="https://supdrewin.github.io/blog.cn/VirtualBox-%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://supdrewin.github.io/blog.cn/VirtualBox-%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/","path":"VirtualBox-完全指南/","title":"VirtualBox 完全指南"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>VirtualBox 完全指南 | 起飞吧, 少年</title><meta name="robots" content="noindex">
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog.cn/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog.cn/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">起飞吧, 少年</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/blog.cn/home" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/blog.cn/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#VirtualBox-%E6%98%AF%E4%BD%95%E6%96%B9%E7%A5%9E%E5%9C%A3"><span class="nav-number">1.</span> <span class="nav-text">VirtualBox 是何方神圣</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8-VirtualBox"><span class="nav-number">2.</span> <span class="nav-text">开始使用 VirtualBox</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B"><span class="nav-number">2.1.</span> <span class="nav-text">入门教程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%87%86%E5%A4%87%E5%BF%85%E8%A6%81%E6%96%87%E4%BB%B6"><span class="nav-number">2.1.1.</span> <span class="nav-text">1. 准备必要文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85-VirtualBox"><span class="nav-number">2.1.2.</span> <span class="nav-text">2. 安装 VirtualBox</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-VirtualBox-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2"><span class="nav-number">2.1.3.</span> <span class="nav-text">3. VirtualBox 用户界面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E5%AE%89%E8%A3%85%E5%8A%9F%E8%83%BD%E6%8B%93%E5%B1%95%E5%8C%85"><span class="nav-number">2.1.4.</span> <span class="nav-text">4. 安装功能拓展包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">2.1.5.</span> <span class="nav-text">5. 创建虚拟机</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-%E8%BF%9B%E8%A1%8C%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.6.</span> <span class="nav-text">6. 进行基本配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-%E4%B8%80%E5%88%87%E5%87%86%E5%A4%87%E5%B0%B1%E7%BB%AA-%E9%82%A3%E4%B9%88%E5%BC%80%E5%A7%8B%E5%90%A7"><span class="nav-number">2.1.7.</span> <span class="nav-text">7. 一切准备就绪, 那么开始吧!</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD"><span class="nav-number">2.1.8.</span> <span class="nav-text">8. 安装增强功能</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E7%94%A8%E6%88%B7%E6%95%99%E7%A8%8B"><span class="nav-number">2.2.</span> <span class="nav-text">高级用户教程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%AE%9E%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">关于实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Supdrewin"
+      src="/blog.cn/resources/Konqi/Konqi.png">
+  <p class="site-author-name" itemprop="name">Supdrewin</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/supdrewin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;supdrewin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/supdrewin" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://supdrewin.github.io/blog.cn/VirtualBox-%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog.cn/resources/Konqi/Konqi.png">
+      <meta itemprop="name" content="Supdrewin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="起飞吧, 少年">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          VirtualBox 完全指南
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a href="#" title="TODO:完全介绍VBox, 将 Arch 转移"></a></p>
+<h3 id="VirtualBox-是何方神圣"><a href="#VirtualBox-是何方神圣" class="headerlink" title="VirtualBox 是何方神圣"></a>VirtualBox 是何方神圣</h3><p>下面来看官方是怎么介绍的 <a href="#" title="本人英语水平有限, 如有不当, 请联系我更改">(有改动)</a>:</p>
+<p>VirtualBox 是一个同时适用于家庭和企业生产的强有力的 x86 平台虚拟化产品. 功能丰富, 性能优越的 VirtualBox 不仅适仅对于企业用户, 它也是唯一一个可以作为自由软件的专业级解决方案, 开源版本主要使用 <a href="#" title="拓展包使用不同的许可证">GPL v2 许可证</a>.</p>
+<p>目前, VirtualBox可以在 Windows, Linux, <a href="#" title="即 macOS, 特定条件下可以运行 Hackintosh">Macintosh</a>, <a href="#" title="原 SunOS, 由太阳微系统公司(Sun Microsystems)开发, 后者被甲骨文公司(Oracle)收购">Solaris</a> 主操作系统中运行, 并支持大量来宾操作系统包括但不限于 Windows (NT 4.0, 2000, XP, Server 2003, <a href="#" title="支持此系统 Aero 效果的最高软件版本为 6.0.x">Vista</a>, Windows 7, Windows 8, Windows 10, <a href="#" title="此操作系统经过本人测试可以流畅运行, 且 BUG 比 Windows 10 少">Windows 11</a>), DOS/Windows 3.x, Linux (2.4, 2.6, 3.x, 4.x 和 <a href="#" title="一般通用内核以集成相应模块, 5.x 可以运行, 但是使用 VBoxSVGA 一般会出问题">5.x</a>), Solaris and OpenSolaris, <a href="#" title="IBM 与微软合作开发的远古操作系统">OS/2</a>, and OpenBSD.</p>
+<p>VirtualBox 开发进程活跃并且发布新版本频率快, 通常会添加一系列新功能, 支持更多的来宾操作系统和可以运行的平台. VirtualBox 是由一家专门的公司支持的社区努力的成果: <a href="#" title="即甲骨文公司, VirtualBox 原本由太阳微系统公司(Sun Microsystems)开发, 后随 Sun 一起并入">Oracle</a> 在确保产品总是符合专业质量标准的同时鼓励每一个人贡献自己的代码.</p>
+<h3 id="开始使用-VirtualBox"><a href="#开始使用-VirtualBox" class="headerlink" title="开始使用 VirtualBox"></a>开始使用 VirtualBox</h3><h4 id="入门教程"><a href="#入门教程" class="headerlink" title="入门教程"></a>入门教程</h4><h5 id="1-准备必要文件"><a href="#1-准备必要文件" class="headerlink" title="1. 准备必要文件"></a>1. <a href="#" title="Linux 用户可跳过此步, 并且我默认 Linux 用户可以自己解决问题">准备必要文件</a></h5><ol>
+<li>VirtualBox 安装程序<br>点击进入 <a target="_blank" rel="noopener" href="https://www.virtualbox.org/wiki/downloads" title="Oracle VM VirtualBox">官网的下载页面</a>, 如图:<br><img src="../resources/VBox/Downloads.png"></li>
+</ol>
+<ul>
+<li><strong>&lt;1&gt;</strong> 下载 VirtualBox 安装程序, 根据你自己正在用的系统选择. 如果你是 Windows 用户, 选择 <a href="#" title="Windows hosts">Windows 版本</a>, 如果你是 <a href="#" title="macOS">苹果</a> 用户, 选择 <a href="#" title="OS X hosts">mac OS X 版本</a>.</li>
+<li><strong>&lt;2&gt;</strong> 下载 <a href="#" title="All platforms">功能拓展包</a>, 只有一个, 是 <a href="#" title="Linux, macOS, Windows">全平台</a> 通用的.</li>
+<li><strong>&lt;3&gt;</strong> 可选查看所有文件的校验和, 并 <a href="../checksums" title="点击查看: 文件校验">校验</a> 下载的文件, 推荐使用 <a href="#" title="一种哈希算法, 常用于比对文件之间是否有差异">SHA256 算法</a>.</li>
+<li><strong>&lt;4&gt;</strong> 这些是旧版本的 VirtualBox 下载链接. 如果你需要使用 <a href="#" title="VirtualBox 6.1">新版本</a> <a href="#" title="包括但不限于 VBoxVGA 的 3D 加速功能, 在 32 位系统上运行 VirtualBox 的支持">弃用的功能</a>, 可以考虑下载旧版本的 VirtualBox. <strong>Linux 用户</strong>请注意, 如果你使用较新的 Linux 内核, 旧版本的 VirtualBox 可能<strong>完全无法正常使用</strong>.</li>
+</ul>
+<ol start="2">
+<li>准备光盘映像</li>
+</ol>
+<ul>
+<li>点击此处查看 <a href="../mirrorlist" title="国内常见镜像站合集">国内常见镜像站合集</a><br><img src="../resources/VBox/WgetImage.png" title="这是一个示例, 仅供参考"></li>
+<li>一般我们使用的镜像格式后缀为 .iso, 另外强烈建议这类大型文件下载完一定要<strong>校验</strong>!! (如何校验可参考 <a href="../checksums" title="文件校验">这里</a>)<br><img src="../resources/VBox/CheckImage.png" title="这也是一个示例, 仅供参考"></li>
+</ul>
+<h5 id="2-安装-VirtualBox"><a href="#2-安装-VirtualBox" class="headerlink" title="2. 安装 VirtualBox"></a>2. 安装 VirtualBox</h5><ul>
+<li>Windows 用户<strong>以管理员身份运行</strong>下载的 <a href="#" title=".exe">可执行文件</a>.</li>
+<li><a href="#" title="macOS">苹果</a> 用户双击下载的 <a href="#" title=".dmg">光盘映像</a>, 然后自动安装.</li>
+</ul>
+<h5 id="3-VirtualBox-用户界面"><a href="#3-VirtualBox-用户界面" class="headerlink" title="3. VirtualBox 用户界面"></a>3. VirtualBox 用户界面</h5><ol>
+<li>应用程序主窗口<br><img src="../resources/VBox/MainWindow.png" title="这是VirtualBox 的应用程序主窗口"></li>
+<li>这是菜单,位置可能不一样<br><img src="../resources/VBox/AppMenu.png" title="VirtualBox 的菜单, 桌面环境是 KDE"></li>
+</ol>
+<h5 id="4-安装功能拓展包"><a href="#4-安装功能拓展包" class="headerlink" title="4. 安装功能拓展包"></a>4. 安装功能拓展包</h5><ol>
+<li>打开全局设置<br><img src="../resources/VBox/AppSettings.png" title="在菜单打开全局设置"></li>
+<li>选择你的拓展包所在位置,点击安装<br><img src="../resources/VBox/InstallExtension.png" title="添加拓展包时需要接受用户协议, 阅读完后选择接受"></li>
+</ol>
+<h5 id="5-创建虚拟机"><a href="#5-创建虚拟机" class="headerlink" title="5. 创建虚拟机"></a>5. 创建虚拟机</h5><p>   以 ArchLinux 为例, 这里带你用最快速度进行一些基本配置:</p>
+<ol>
+<li>点击 ‘Add’ 按钮开始一个新建向导, 点击 <a href="," title="其实都差不多的">专家模式</a>, 给虚拟机取个名字, 分配 <a href="#" title="实测 4096 MB 最合适, 并不是越多越好, 多了不仅浪费而且性能有所下降">合适的内存大小</a>, 然后下一步.<br><img src="../resources/VBox/NewMachine.png"></li>
+<li>创建虚拟磁盘, 分配储存空间大小, 默认是动态分配, 所以 <a href="#" title="Windows 虚拟机例外, 可以随意分配, 后期拓展卷比较方便">尽量多分一些</a>.<br><a href="../virtualdisk" title="点击查看虚拟磁盘">格式</a> 使用默认, 性能是最好的, 下一步.<br><img src="../resources/VBox/NewDisk.png"></li>
+</ol>
+<h5 id="6-进行基本配置"><a href="#6-进行基本配置" class="headerlink" title="6. 进行基本配置"></a>6. 进行基本配置</h5><ol>
+<li>调整处理器数量, 分配一个 <a href="#" title="一般是一个, 超线程是两个">完整的核心</a> 即可, 打开 <a href="../pae" title="点击查看: 物理寻址拓展">PAE</a>.<br>如果你的是较新的 <a href="#" title="AMD Ryzen">锐龙</a> 处理器, 下面的 <a href=".">嵌套虚拟化</a> 应该是可以点亮的, 不过注意, 这是一项实验性功能, 如果此选项被禁用, 头铁的兄弟可以使用 <a href="#" title="VBoxManage modifyvm &lt;虚拟机名字&gt; --nested-hw-virt on">此命令</a> <a href="#" title="本人试过没有意外发生">强制打开</a>.<br><img src="../resources/VBox/CPUCount.png"></li>
+<li>接下来是显示相关的配置, 可以开启 <a href="#" title="需要安装增强功能">3D 加速</a>, 显存尽可能拉大.<br>VirtualBox 支持的最大视频内存为 256 MB, 由于 <a href="../gpu" title="两种虚拟图形控制器, VBoxVGA 从 6.1 开始被弃用, 取而代之的是 VBoxSVGA 和 VMSVGA. 点击查看更多详情">VBoxVGA 和 VMSVGA</a> 默认 128 MB 上限, 头铁的兄弟可以使用 <a href="#" title="VBoxManage modifyvm &lt;虚拟机名字&gt; --vram 256">此命令</a> <a href="#" title="本人测试过一切正常">将视频内存拉到最大</a>.<br><img src="../resources/VBox/VideoMemory.png"></li>
+<li>储存控制器一般选择 <a href="#" title="一种储存控制器, SATA 2.0 满速为 3.0 Gb/s, SATA 3.0 满速为 6.0 Gb/s">SATA</a>, 也可以选 <a href="#" title="目前 Windows 原版安装镜像只有 Windows 8.1 原生自带此驱动">NVMe</a>, 如有 <a href="#" title="远古控制器之一, 本人用过真正的 IDE 光驱, 然后你懂得">IDE</a>, 请移除该控制器, 并增加 <a href="#" title="一种储存控制器, SATA 2.0 满速为 3.0 Gb/s, SATA 3.0 满速为 6.0 Gb/s">SATA</a> 通道的最大连接数.<br>如果 <a href="#" title="比如我刚刚移除了 IDE 控制器, 其下的光驱位也将被移除">控制器下没有光驱</a>, 点击’Controller: SATA’上的按添加光驱, 选择你现有的光盘映像, 也可以先留空.<br>如果你使用的是固态硬盘, 可以在对应虚拟磁盘下勾选 <a href="#" title="Solid-state Drive">固态驱动器</a>, 为达到最佳效果, 请同时勾选控制器下的 <a href="#" title="Use Host I/O Cache">使用主机读写缓存</a>.<br><img src="../resources/VBox/RemoveIDE.png"><br><img src="../resources/VBox/PortCount.png"><br><img src="../resources/VBox/AddOptical.png"><br><img src="../resources/VBox/ChooseImage.png"><br><img src="../resources/VBox/SolidState.png"></li>
+<li>后来的配置暂时不讲, 默认即可.</li>
+</ol>
+<h5 id="7-一切准备就绪-那么开始吧"><a href="#7-一切准备就绪-那么开始吧" class="headerlink" title="7. 一切准备就绪, 那么开始吧!"></a>7. 一切准备就绪, 那么开始吧!</h5><ol>
+<li>调整完配置后启动:<br><img src="../resources/VBox/StartMachine.png"></li>
+<li>开始安装系统:<iframe src="../resources/VM/InstallArch.mp4"
+  allowfullscreen="true"
+  border="0"
+  frameborder="no"
+  framespacing="0"
+  scrolling="no"></iframe></li>
+</ol>
+<h5 id="8-安装增强功能"><a href="#8-安装增强功能" class="headerlink" title="8. 安装增强功能"></a>8. 安装增强功能</h5><ul>
+<li>Debian 和 ArchLinux 等发行版的包管理中已有 <a href="#" title="如 ArchLinux 的 virtualbox-guest-utils">相关的包</a>.<br>但是建议使用虚拟机菜单上的 <a href="#" title="Insert Guest Additions CD Image...">安装增强功能</a> 安装, 具体原因暂不解释.</li>
+<li>以未安装桌面环境的 ArchLinux 为例:<ol>
+<li>点击虚拟机菜单中的 <a href="#" title="Insert Guest Additions CD Image...">安装增强功能</a><br><img src="../resources/VM/InstallGuest.png"></li>
+<li>在虚拟机中 <a href="#" title="mount /dev/sr0 /mnt">挂载</a> 上一步插入的光盘映像到随意一个空目录下, <strong>请忽略警告</strong>.<br><img src="../resources/VM/MountGuest.png"></li>
+<li>切换到挂载点, 开始 <a href="#" title="./VBoxLinuxAdditions.run">build</a>. 如出现依赖问题, 请安装它提示的包. 一般 ArchLinux 安装 <a target="_blank" rel="noopener" href="https://archlinux.org/groups/x86_64/base-devel" title="点击跳转">base-devel</a> 包组即可.<br><img src="../resources/VM/BuildGuest.png"></li>
+<li><a href="#" title="reboot">重启</a> 完成安装.</li>
+</ol>
+</li>
+</ul>
+<h4 id="高级用户教程"><a href="#高级用户教程" class="headerlink" title="高级用户教程"></a>高级用户教程</h4><ul>
+<li>暂时参考 <a target="_blank" rel="noopener" href="https://www.virtualbox.org/manual" title="User Manual (HTML version)">用户手册</a>, 作者忙.</li>
+</ul>
+<h3 id="关于实例"><a href="#关于实例" class="headerlink" title="关于实例"></a>关于实例</h3><ul>
+<li><p>为什么选 Linux</p>
+<p>点击阅读 <a href="../linux" title="什么是 Linux">什么是 Linux</a></p>
+</li>
+<li><p>为什么选 ArchLinux</p>
+<p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Arch_Linux" title="Arch Linux">Arch 原则</a>: 简洁, 现代, 实用主义, 以用户为中心.</p>
+</li>
+<li><p>关于安装 Windows</p>
+<p>如果你有 Windows 安装镜像, 并且觉得 Windows 更适合你, 请跳转 <a href="../boxwindows" title="VirtualBox 安装 Windows">此处</a>.</p>
+</li>
+</ul>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.virtualbox.org/manual" title="User Manual (HTML version)">用户手册</a></li>
+</ul>
+<!-- flag of hidden posts -->
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>原作者： </strong>Supdrewin
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://supdrewin.github.io/blog.cn/VirtualBox-%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/" title="VirtualBox 完全指南">https://supdrewin.github.io/blog.cn/VirtualBox-完全指南/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-dragon"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Supdrewin</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/blog.cn/js/comments.js"></script><script src="/blog.cn/js/utils.js"></script><script src="/blog.cn/js/motion.js"></script><script src="/blog.cn/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#fff',
+  buttonColorLight: '#000',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: false
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>
