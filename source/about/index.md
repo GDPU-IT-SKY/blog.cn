@@ -30,8 +30,9 @@ title: 关于
   - 明确说明指向站外, 如文章中'点击跳转 XXX'等
 
 ### 关于作者
-0. [Supdrewin](https://github.com/supdrewin "Supdrewin 的 Github") - 原站长, 自由职业, Linux 爱好者, 业余镜像收藏家, [不爱折腾的折腾者](# "折腾是为了不折腾")
-1. [Mr. Chai](https://github.com/chaixiang2002 "Mr. Chai 的 Github") - 现任站长, 热爱学习
+
+0. [Mr. Chai](https://github.com/chaixiang2002 "Mr. Chai 的 Github") - 现任站长, 热爱学习
+1. [Supdrewin](https://github.com/supdrewin "Supdrewin 的 Github") - 原站长, 自由职业, Linux 爱好者, 业余镜像收藏家, [不爱折腾的折腾者](# "折腾是为了不折腾")
 2. [???](# "会是你吗?") - 正在赶来的路上
 
 ### 加入我们
